@@ -1,0 +1,42 @@
+---
+title: "Flagstaff_Weather"
+author: "Bailey Rosato"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(RosatoChapter16)
+```
+
+```{r}
+Flagstaff_Weather$DATE <- as.Date(Flagstaff_Weather$DATE)
+```
+
+
+```{r}
+ggplot(Flagstaff_Weather, aes(x=DATE, y=SNOW)) + geom_point() +
+       scale_x_date(breaks = "5 year" , date_labels = "%Y") + 
+       theme(text = element_text(size = 9))
+```
+
+```{r}
+ggplot(Flagstaff_Weather, aes(x=DATE, y=Rain)) + geom_point() + 
+       scale_x_date(breaks = "5 year" , date_labels = "%Y") +
+       theme(text = element_text(size = 9))
+```
+```{r}
+ggplot(Flagstaff_Weather, aes(x=DATE, y=TMIN)) + geom_point() +
+       scale_x_date(breaks = "5 year" , date_labels = "%Y") +
+       theme(text = element_text(size = 9))
+```
+
+```{r}
+ggplot(Flagstaff_Weather, aes(x=DATE, y=TMAX)) + geom_point() +
+       scale_x_date(breaks = "5 year" , date_labels = "%Y") +
+       theme(text = element_text(size = 9))
+```
+
